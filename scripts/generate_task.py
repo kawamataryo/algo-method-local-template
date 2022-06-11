@@ -36,10 +36,12 @@ def extract_problem_from_text(text: str) -> str:
 
 def generate_task(task_number: int) -> None:
     dir_name = f"tasks/{str(task_number)}"
+    BASE_URL = "https://algo-method.com/tasks"
+    BASE_API_URL = "https://algo-method.com/_next/data/ZURzraP6sS_ySnYKIk84m/tasks"
 
     # fetch task text
     r = httpx.get(
-        f"https://algo-method.com/_next/data/ZURzraP6sS_ySnYKIk84m/tasks/{str(task_number)}.json?id={str(task_number)}"
+        f"{BASE_API_URL}/{str(task_number)}.json?id={str(task_number)}"
     )
     body_text = r.json()["pageProps"]["tasks"]["body"]
     io_list = extract_io_list_from_text(body_text)
@@ -55,7 +57,7 @@ def generate_task(task_number: int) -> None:
     with open(f"{os.path.dirname(__file__)}/templates/main.py", "r") as f:
         main_text = f.read()
     with open(f"{os.path.dirname(__file__)}/../{dir_name}/main.py", "w") as f:
-        f.write(f'"""\n{problem_text}\n"""\n\n\n{main_text}')
+        f.write(f'"""\n{BASE_URL}/{str(task_number)}\n\n\n{problem_text}\n"""\n\n\n{main_text}')
 
     # copy template files
     shutil.copy(
