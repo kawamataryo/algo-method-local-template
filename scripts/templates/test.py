@@ -30,7 +30,7 @@ def stub_stdouts(testcase_inst):
 
 
 class MainTestCase(unittest.TestCase):
-    def test_json(self):
+    def test_main(self):
         path = (
             os.path.dirname(__file__) + "/case.json"
             if os.path.dirname(__file__)
