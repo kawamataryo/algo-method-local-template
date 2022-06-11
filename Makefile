@@ -4,7 +4,7 @@ up:
 	docker-compose up -d
 
 run_test:
-	docker-compose run --rm python python tasks/${TASK}/test.py
+	docker-compose run --rm python python scripts/run_test.py ${TASK}
 
 generate_task:
 	docker-compose run --rm python python scripts/generate_task.py ${TASK}

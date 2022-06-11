@@ -9,7 +9,8 @@ import fire
 
 def extract_io_list_from_text(text: str) -> List[Tuple[str, str]]:
     input_pattern = r"####.*?入力例.*?\d.*?\n```IOExample.*?\n([\s\S]*?)```"
-    input_results = [re.sub(r"\s*?\r", "", r) for r in re.findall(input_pattern, text)]
+    input_results = [re.sub(r"\s*?\r", "", r)
+                     for r in re.findall(input_pattern, text)]
 
     output_pattern = r"####.*?出力例.*?\d.*?\n```IOExample.*?\n([\s\S]*?)```"
     output_results = [
@@ -53,17 +54,9 @@ def generate_task(task_number: int) -> None:
         json.dump(io_list, f, indent=2)
 
     # generate main.py
-    main_text = ""
-    with open(f"{os.path.dirname(__file__)}/templates/main.py", "r") as f:
-        main_text = f.read()
     with open(f"{os.path.dirname(__file__)}/../{dir_name}/main.py", "w") as f:
-        f.write(f'"""\n{BASE_URL}/{str(task_number)}\n\n\n{problem_text}\n"""\n\n\n{main_text}')
-
-    # copy template files
-    shutil.copy(
-        f"{os.path.dirname(__file__)}/templates/test.py",
-        f"{os.path.dirname(__file__)}/../{dir_name}/test.py",
-    )
+        f.write(
+            f'"""\n{BASE_URL}/{str(task_number)}\n\n\n{problem_text}\n"""\n\n\nprint("Hello Algor-Method!")\n')
 
 
 if __name__ == "__main__":
