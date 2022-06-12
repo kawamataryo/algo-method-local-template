@@ -1,8 +1,7 @@
 # Algo-Method local template
 Repository template for a local development environment to efficiently learn the [Algo-method](https://algo-method.com/).
 
-https://user-images.githubusercontent.com/11070996/173185423-a750ab0f-1808-43a1-9308-b82383273085.mp4
-
+https://user-images.githubusercontent.com/11070996/173215285-f6446cfa-3ead-4e91-b69d-ae6f908e4b94.mp4
 
 ## 🚀 How to use
 
