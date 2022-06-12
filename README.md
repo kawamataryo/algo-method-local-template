@@ -4,20 +4,26 @@ Repository template for a local development environment to efficiently learn the
 https://user-images.githubusercontent.com/11070996/173185423-a750ab0f-1808-43a1-9308-b82383273085.mp4
 
 
-## How to use
+## 🚀 How to use
 
-1. Create a repository from [this link](https://github.com/kawamataryo/algo-method-local-template/generate) and clone it locally.
+### 1. Create a repository
+Create a repository from [this link](https://github.com/kawamataryo/algo-method-local-template/generate) and clone it locally.
 
-2. Generate test cases and problem files for the target problem under `/questions`.
+
+### 2. Generate test cases and problem
+Generate test cases and answer files for the target question under `/questions`.  
+The question number is the number at the end of the URL. (e.g. `https://algo-method.com/tasks/116/` is `No=116`)
 
 ```
 make get_question No=116
 ```
 
-3. Run test on the target problem.
+### 3. Run test
+ Run test on the target question.
 
 ```
 make run_test No=116
 ```
 
-4. Go to the problem page and submit your answers.
+### 4. Submit answer.
+Go to the question page and submit your answers 🎉
