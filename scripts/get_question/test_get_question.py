@@ -1,4 +1,4 @@
-import generate_task
+import get_question
 import re
 import pytest
 
@@ -33,7 +33,8 @@ extract_io_from_text_cases = [
 
 @pytest.mark.parametrize("case", extract_io_from_text_cases)
 def test_extract_io_from_text(case):
-    assert generate_task.extract_io_list_from_text(case[0]) == case[1]
+    assert get_question
+.extract_io_list_from_text(case[0]) == case[1]
 
 
 extract_problem_from_text_cases = [
@@ -50,5 +51,6 @@ extract_problem_from_text_cases = [
 
 @pytest.mark.parametrize("case", extract_problem_from_text_cases)
 def test_extract_problem_from_text(case):
-    assert generate_task.extract_problem_from_text(
+    assert get_question
+.extract_problem_from_text(
         case[0]) == re.sub(r"\s*?\r", "", case[1])

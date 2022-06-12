@@ -8,16 +8,16 @@ https://user-images.githubusercontent.com/11070996/173185423-a750ab0f-1808-43a1-
 
 1. Create a repository from [this link](https://github.com/kawamataryo/algo-method-local-template/generate) and clone it locally.
 
-2. Generate test cases and problem files for the target problem under `/tasks`.
+2. Generate test cases and problem files for the target problem under `/questions`.
 
 ```
-make generate_task TASK=116
+make get_question No=116
 ```
 
 3. Run test on the target problem.
 
 ```
-make run_test TASK=116
+make run_test No=116
 ```
 
 4. Go to the problem page and submit your answers.

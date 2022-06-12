@@ -4,12 +4,9 @@ import os
 import json
 
 
-def run_test(task_number: int):
-    global case_data
-    global main_text
-
-    case_path = f"{os.path.dirname(__file__)}/../../tasks/{task_number}/case.json"
-    main_path = f"{os.path.dirname(__file__)}/../../tasks/{task_number}/main.py"
+def run_test(problem_number: int):
+    case_path = f"{os.path.dirname(__file__)}/../../questions/{problem_number}/case.json"
+    main_path = f"{os.path.dirname(__file__)}/../../questions/{problem_number}/main.py"
 
     with open(case_path) as f:
         cases = json.load(f)

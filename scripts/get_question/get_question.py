@@ -35,18 +35,18 @@ def extract_problem_from_text(text: str) -> str:
     return re.sub(r"\s*?\r", "", problem_result.group(1))
 
 
-def fetch_problem_body(url: str) -> str:
+def fetch_question_body(url: str) -> str:
     res = httpx.get(url)
     soup = BeautifulSoup(res.text, 'html.parser')
     data = soup.select_one('#__NEXT_DATA__').get_text()
     return json.loads(data)["props"]["pageProps"]["tasks"]["body"]
 
 
-def generate_task(task_number: int) -> None:
-    dir_name = f"tasks/{str(task_number)}"
+def get_question(question_number: int) -> None:
+    dir_name = f"questions/{str(question_number)}"
     BASE_URL = "https://algo-method.com/tasks"
 
-    body_text = fetch_problem_body(f"{BASE_URL}/{task_number}")
+    body_text = fetch_question_body(f"{BASE_URL}/{question_number}")
 
     io_list = extract_io_list_from_text(body_text)
     problem_text = extract_problem_from_text(body_text)
@@ -59,8 +59,8 @@ def generate_task(task_number: int) -> None:
     # generate main.py
     with open(f"{os.path.dirname(__file__)}/../../{dir_name}/main.py", "w") as f:
         f.write(
-            f'"""\n{BASE_URL}/{str(task_number)}\n\n{problem_text}"""\n\nprint("Hello Algor-Method!")\n')
+            f'"""\n{BASE_URL}/{str(question_number)}\n\n{problem_text}"""\n\nprint("Hello Algor-Method!")\n')
 
 
 if __name__ == "__main__":
-    fire.Fire(generate_task)
+    fire.Fire(get_question)

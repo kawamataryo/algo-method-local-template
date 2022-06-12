@@ -7,4 +7,4 @@ services:
     tty: true
     volumes:
       - ./scripts:/root/src/scripts
-      - ./tasks:/root/src/tasks
+      - ./questions:/root/src/questions

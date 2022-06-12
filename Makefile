@@ -1,10 +1,10 @@
-TASK = 1
+No = 1
 
 up:
 	docker-compose up -d
 
 run_test:
-	docker-compose run --rm python python scripts/run_test/run_test.py ${TASK}
+	docker-compose run --rm python python scripts/run_test/run_test.py ${No}
 
-generate_task:
-	docker-compose run --rm python python scripts/generate_task/generate_task.py ${TASK}
+get_question:
+	docker-compose run --rm python python scripts/get_question/get_question.py ${No}
