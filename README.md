@@ -10,8 +10,8 @@ https://user-images.githubusercontent.com/11070996/173185423-a750ab0f-1808-43a1-
 Create a repository from [this link](https://github.com/kawamataryo/algo-method-local-template/generate) and clone it locally.
 
 
-### 2. Generate test cases and problem
-Generate test cases and answer files for the target question under `/questions`.  
+### 2. Generate test cases and answer sheet
+Generate test cases and answer sheet for the target question under `/questions`.  
 The question number is the number at the end of the URL. (e.g. `https://algo-method.com/tasks/116/` is `No=116`)
 
 ```
