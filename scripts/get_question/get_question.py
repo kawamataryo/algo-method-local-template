@@ -20,7 +20,8 @@ def extract_io_list_from_text(text: str) -> List[Tuple[str, str]]:
     if len(input_results) < 1 or len(input_results) != len(output_results):
         raise Exception("Failed to extract input/output from text")
     return [
-        (input_result, output_results[i])
+        # if output_results is only '\n', result is blank.
+        (input_result, output_results[i] if output_results[i] != "\n" else "")
         for i, input_result in enumerate(input_results)
     ]
 
